@@ -1,1 +1,8 @@
-<p>input works!</p>
+<div class="input-container">
+    <label>Nome: </label>
+    <input 
+        type="text" 
+        [value]="Value"
+        (input)="onInputChange($event)"
+        >
+</div>
