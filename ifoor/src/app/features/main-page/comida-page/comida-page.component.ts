@@ -18,4 +18,8 @@ export class ComidaPageComponent {
   onCardClick = (item: FoodItem) => {
     this.focusedFood = item
   }
+
+  save = () => {
+    alert('Pedido efetuado com sucesso!')
+  }
 }

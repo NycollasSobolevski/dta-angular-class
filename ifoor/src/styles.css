@@ -4,3 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+button {
+    padding:  .75rem 1rem;
+    color: white;
+    background-color: rgb(92, 92, 193);
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -6,6 +6,13 @@
     </div>
 
     <div class="modal-content">
-        
+        <ng-content></ng-content>
+    </div>
+
+    <div class="modal-footer">
+        <div class="confirmation" *ngIf="Confirmation">
+            <button (click)="toggleClose()">Cancel</button>
+            <button (click)="toggleSave()">{{SaveLabel || "save"}}</button>
+        </div>
     </div>
 </div>

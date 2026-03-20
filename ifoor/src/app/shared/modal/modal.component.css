@@ -18,15 +18,20 @@
     padding: 1rem ;
     box-shadow: 0 0 10px rgba(10, 7, 7, 0.399);
     border-radius: 5px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .close {
         cursor: pointer;
     }
 
-    .modal-header{
+    .modal-header, .confirmation{
         height: 3rem;
         display: flex;
         width: 100%;
         justify-content: space-between;
     }
+
+    
+
 }

@@ -8,7 +8,16 @@
     </app-comida-card>
 </div>
 
-<app-modal></app-modal>
+<app-modal 
+    *ngIf="focusedFood"
+    (onClose)="focusedFood = undefined"
+    [Confirmation]="true"
+    [Title]="'Modalzinho'"
+    SaveLabel="Efetuar pedido"
+    (onSave)="save()"
+>
+    <h1>minha comidinha</h1>
+</app-modal>
 
 <!-- <app-comida-details-modal 
     *ngIf="focusedFood" 
