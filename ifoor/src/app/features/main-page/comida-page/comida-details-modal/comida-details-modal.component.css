@@ -7,11 +7,17 @@
 }
 .modal-container {
     position: fixed;
-    width: 10rem;
-    height: 10rem;
-    top: 0;left: 0;
-    right: 0;
-    bottom: 0;
+    width: fit-content;
+    height: fit-content;
+    inset: 0;
     margin: auto;
-    background-color: aqua;
+    background-color: white;
+    box-shadow: 0 0 10px black;
+    padding: 1rem;
+
+    .modal-footer, .modal-header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
 }

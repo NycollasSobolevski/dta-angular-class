@@ -1,4 +1,17 @@
 <div class="modal-bg"></div>
 <div class="modal-container">
-    <p>comida-details-modal works!</p>
+    <div class="modal-header">
+        <div class="title">{{item?.name}}</div>
+        <div class="close">x</div>
+    </div>
+
+    <div class="modal-content">
+        <img [src]="item?.image" alt="" height="100">
+        <p>{{item?.description}}</p>
+    </div>
+
+    <div class="modal-footer">
+        <h2>R$ {{item?.price}}</h2>
+        <button>Comprar</button>
+    </div>
 </div>

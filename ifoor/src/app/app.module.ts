@@ -12,6 +12,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { MercadoPageComponent } from './features/main-page/mercado-page/mercado-page.component';
 import { ComidaPageComponent } from './features/main-page/comida-page/comida-page.component';
 import { ComidaDetailsModalComponent } from './features/main-page/comida-page/comida-details-modal/comida-details-modal.component';
+import { ComidaCardComponent } from './features/main-page/comida-page/comida-card/comida-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ComidaDetailsModalComponent } from './features/main-page/comida-page/co
     NavComponent,
     MercadoPageComponent,
     ComidaPageComponent,
-    ComidaDetailsModalComponent
+    ComidaDetailsModalComponent,
+    ComidaCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,14 @@
 <p>comida-page works!</p>
-<div class="_pessoas">
-    <div class="_pessoa" *ngFor="let person of pessoas; track: $index">
-        {{person.name}}
-    </div>
+<div class="_menu">
+    <app-comida-card 
+        *ngFor="let _food of menu; track: $index" 
+        [food]="_food" 
+        (click)="onCardClick(_food)"
+        >
+    </app-comida-card>
 </div>
 
-<app-comida-details-modal *ngIf="abrido"></app-comida-details-modal>
+<app-comida-details-modal 
+    *ngIf="focusedFood" 
+    [item]="focusedFood">
+</app-comida-details-modal>
