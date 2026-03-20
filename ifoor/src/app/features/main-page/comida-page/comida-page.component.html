@@ -10,5 +10,7 @@
 
 <app-comida-details-modal 
     *ngIf="focusedFood" 
-    [item]="focusedFood">
+    [item]="focusedFood"
+    (onClose)="focusedFood = undefined"
+    >
 </app-comida-details-modal>
