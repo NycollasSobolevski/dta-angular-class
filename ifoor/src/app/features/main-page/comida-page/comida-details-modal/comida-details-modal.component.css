@@ -1,0 +1,17 @@
+.modal-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0; left: 0;
+    backdrop-filter: blur(2px);
+}
+.modal-container {
+    position: fixed;
+    width: 10rem;
+    height: 10rem;
+    top: 0;left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: aqua;
+}

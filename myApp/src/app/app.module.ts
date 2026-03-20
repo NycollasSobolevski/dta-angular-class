@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AppRoutingModule} from '@angular/core'
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    
+    AppRoutingModule,
     FormsModule
   ],
   providers: [],

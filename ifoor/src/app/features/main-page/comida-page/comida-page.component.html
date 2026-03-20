@@ -1,0 +1,8 @@
+<p>comida-page works!</p>
+<div class="_pessoas">
+    <div class="_pessoa" *ngFor="let person of pessoas; track: $index">
+        {{person.name}}
+    </div>
+</div>
+
+<app-comida-details-modal *ngIf="abrido"></app-comida-details-modal>
