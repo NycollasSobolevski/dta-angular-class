@@ -12,6 +12,7 @@ const routes: Routes = [
     {path: "comida", component: ComidaPageComponent}
   ]},
   {path: "login", component:LoginPageComponent},
+  {path: "login/:tab", component:LoginPageComponent},
   {path: "**", component:NotFoundPageComponent},
 ];
 

@@ -16,7 +16,13 @@
     SaveLabel="Efetuar pedido"
     (onSave)="save()"
 >
-    <h1>minha comidinha</h1>
+    
+    <div class="modal-content">
+        <img [src]="focusedFood?.image" alt="" height="100">
+        <p>{{focusedFood?.description}}</p>
+    </div>
+
+        <h2>R$ {{focusedFood?.price}}</h2>
 </app-modal>
 
 <!-- <app-comida-details-modal 
