@@ -9,6 +9,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   isSubscribe = false;
 
+  login: string = "Nycollas";
+
+
+
+
+
+
+
+
   constructor(
     private _router: Router, 
     private _activatedRoute: ActivatedRoute

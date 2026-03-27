@@ -1,2 +1,10 @@
 <div *ngIf="isSubscribe">Inscrever-se</div>
-<div *ngIf="!isSubscribe">login</div>
+<div *ngIf="!isSubscribe">
+    <div class="pai">
+        <p>pai: {{login}}</p>
+        
+        <app-input [_value]="login"></app-input>
+    </div>
+
+
+</div>

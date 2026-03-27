@@ -12,4 +12,9 @@ button {
     background-color: rgb(92, 92, 193);
     border-radius: 5px;
     cursor: pointer;
+
+    &:disabled {
+        background-color: rgb(128, 128, 140);
+        cursor: not-allowed;
+    }
 }

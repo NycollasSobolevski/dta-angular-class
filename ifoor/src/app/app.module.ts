@@ -14,6 +14,8 @@ import { ComidaPageComponent } from './features/main-page/comida-page/comida-pag
 import { ComidaDetailsModalComponent } from './features/main-page/comida-page/comida-details-modal/comida-details-modal.component';
 import { ComidaCardComponent } from './features/main-page/comida-page/comida-card/comida-card.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { InputComponent } from './shared/input/input.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,11 +29,13 @@ import { ModalComponent } from './shared/modal/modal.component';
     ComidaPageComponent,
     ComidaDetailsModalComponent,
     ComidaCardComponent,
-    ModalComponent
+    ModalComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
   ],

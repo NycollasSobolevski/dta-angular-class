@@ -1,0 +1,18 @@
+<div class="filho">
+    <p>filho: {{_value}}</p>
+
+        
+    <!-- IMPORTAR FormsModule no app.module.ts -->
+    <input type="text"
+        [(ngModel)]="_value"
+    >
+
+    <input type="text" 
+        [value]="password"
+        (input)="onPasswordChange($event)"
+    >
+
+
+    <button [disabled]="!isValidPassword" >Send </button>
+
+</div>
