@@ -23,6 +23,14 @@
     </div>
 
         <h2>R$ {{focusedFood?.price}}</h2>
+
+    <div class="quantidade">
+        <h3>Quantidade: </h3>
+        <button (click)="quantity = quantity-1">-</button>
+        {{quantity}}
+        <button (click)="quantity = quantity+1">+</button>
+    </div>
+
 </app-modal>
 
 <!-- <app-comida-details-modal 

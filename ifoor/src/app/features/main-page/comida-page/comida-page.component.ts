@@ -10,6 +10,7 @@ import { FoodItem, menu } from './Food.mock';
 export class ComidaPageComponent {
   protected menu: FoodItem[] = []
   protected focusedFood?: FoodItem; 
+  protected quantity = 1;
   // protected abrido = true;
   constructor () {
     this.menu = menu;
