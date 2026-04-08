@@ -48,6 +48,7 @@ builder.Services.AddSingleton<IJWTService, JWTService>();
 builder.Services.AddSingleton<IPasswordService, PasswordService>();
 builder.Services.AddTransient<LoginUseCase>();
 builder.Services.AddTransient<SubscribeUseCase>();
+builder.Services.AddTransient<PixelUseCase>();
 
 
 var app = builder.Build();

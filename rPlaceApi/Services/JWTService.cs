@@ -31,4 +31,20 @@ public class JWTService : IJWTService
         var handler = new JwtSecurityTokenHandler();
         return handler.WriteToken(jwt);
     }
+
+    public (JWTData, bool) Deserialize (string token )
+    {
+        var handler = new JwtSecurityTokenHandler();
+        var data = handler.ReadJwtToken(token);
+        var claims = data.Claims;
+        var tokenContent = new JWTData()
+        {
+            ID = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value ?? "",
+            Username = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value ?? "",
+        };
+
+        //! Poderia ter uma validaçao aqui para verificar se o token é valido
+
+        return (tokenContent, true);
+    }
 }

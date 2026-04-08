@@ -5,6 +5,8 @@ namespace rPlace.Services;
 public interface IJWTService
 {
     string CreateToken(JWTData data);
+    (JWTData, bool) Deserialize(string token );
+
 }
 
 public record JWTData
