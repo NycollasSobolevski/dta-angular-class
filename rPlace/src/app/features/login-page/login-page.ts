@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthApi } from '../../domain/auth.api';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginDto } from '../../domain/UserInterfaces';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -56,7 +56,6 @@ export class LoginPage implements OnInit {
 
     this.api.login(data).subscribe(
       res => {
-        console.log(res)
         sessionStorage.setItem("token", res);
         this.router.navigate(['']);
       }
@@ -69,5 +68,7 @@ export class LoginPage implements OnInit {
       alert("Nem todos os campos são validos!");
       return
     }
+    
   }
+
 }

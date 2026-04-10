@@ -12,9 +12,13 @@ import { Pixel } from "./components/pixel/pixel";
 export class MainPage {
   //FORMA ERRADA DE SE FAZER (porem funciona)  
   constructor(private router: Router){}
+
+
   ngOnInit(){
     if(!sessionStorage.getItem('token'))
       this.router.navigate(['login'])
+
+    
     let lines = [];
     for (let y = 0; y < 50; y++) {
       let row : IPixel[] = [];
