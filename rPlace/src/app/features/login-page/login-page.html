@@ -1,0 +1,29 @@
+@if (isSubscribe) {
+    <h1>Subscribe</h1>
+}@else {
+    <h1>Login</h1>
+}
+<form action="get" [formGroup]="loginForm" (ngSubmit)="formAction()">
+    <label for="">Username</label>
+    <br>
+    <input type="text" formControlName="username">
+    <br>
+    <label for="">Password</label>
+    <br>
+    <input type="password" formControlName="password">
+    <br>
+    <button type="submit">
+        @if (isSubscribe) {
+            Subscribe
+        }@else {
+            Login
+        }
+    </button>
+    <button type="button" (click)="this.isSubscribe = !this.isSubscribe">
+        @if (isSubscribe) {
+            login
+        }@else {
+            Subscribe
+        }
+    </button>
+</form>

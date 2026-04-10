@@ -1,0 +1,13 @@
+.pixels-zone {
+    display: flex;
+    flex-direction: column;
+    
+    .row {
+        display: flex;
+    }
+}
+
+app-pixel{
+    width: 2rem;
+    height: 2rem;
+}

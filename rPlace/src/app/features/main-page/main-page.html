@@ -1,24 +1,14 @@
-<!-- <p>main-page works!</p>
-@for (item of items; track $index) {
-    <div>
-        Minha Div: {{item}}
-    </div>
+<header>
+    <h1>Pixels</h1>
+</header>
 
-    @if (item % 2 == 0) {
-        é par
+<main class="pixels-zone">
+    
+    @for (row of pixels; track $index) {
+        <div class="row">
+            @for (pixel of row; track $index) {
+                <app-pixel [data]="pixel" (onChange)="updateData($event)" />
+            }
+        </div>
     }
-} -->
-
-
-<h1>Login</h1>
-<form action="get" [formGroup]="loginForm" (ngSubmit)="login()">
-    <label for="">Username</label>
-    <br>
-    <input type="text" formControlName="username">
-    <br>
-    <label for="">Password</label>
-    <br>
-    <input type="password" formControlName="password">
-    <br>
-    <button type="submit">Login</button>
-</form>
+</main>
