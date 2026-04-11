@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   constructor(
     private api : AuthApi,
     private router: Router
@@ -19,10 +19,7 @@ export class LoginPage implements OnInit {
 
   protected isSubscribe: boolean = false;
 
-  ngOnInit() {
-    if(sessionStorage.getItem('token'))
-      this.router.navigate(['']);
-  }
+ 
 
   loginForm : FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
