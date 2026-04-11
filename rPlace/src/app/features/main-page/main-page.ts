@@ -62,8 +62,6 @@ export class MainPage {
         this.cdr.detectChanges();
       }
     )
-
-    
   }
 
   updateData(pixel: IPixel){
