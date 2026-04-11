@@ -11,3 +11,10 @@ app-pixel{
     width: 2rem;
     height: 2rem;
 }
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

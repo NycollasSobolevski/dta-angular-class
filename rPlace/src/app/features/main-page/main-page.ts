@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { IPixel } from './components/pixel/IPixel';
 import { Pixel } from "./components/pixel/pixel";
 import { PixelApi } from '../../domain/pixel.api';
@@ -66,5 +65,10 @@ export class MainPage {
 
   updateData(pixel: IPixel){
     this.pixels[pixel.y][pixel.x] = pixel
+  }
+
+  logout = () => {
+    sessionStorage.clear();
+    location.reload();
   }
 }
