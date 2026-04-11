@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPixel } from './components/pixel/IPixel';
 import { Pixel } from "./components/pixel/pixel";
@@ -13,16 +13,12 @@ import { PixelApi } from '../../domain/pixel.api';
 export class MainPage {
   //FORMA ERRADA DE SE FAZER (porem funciona)  
   constructor(
-    private router: Router,
+    private cdr: ChangeDetectorRef,
     private api: PixelApi
   ){}
 
 
   ngOnInit(){
-    if(!sessionStorage.getItem('token'))
-      this.router.navigate(['login'])
-
-
     let lines = [];
     for (let y = 0; y < 100; y++) {
       let row : IPixel[] = [];
@@ -56,16 +52,14 @@ export class MainPage {
 
     this.api.GetAll().subscribe(
       res => {
-        console.log(res);
-        for (let y = 0; y < 100; y++) {
-          for(let x = 0; x < 100; x++ ) {
-            let exists = res.find(p => p.x == x && p.y == y);
-            console.log(exists);
-            
-            if(exists)
-              this.pixels[x][y] = exists;
-          }
-        }
+        this.pixels = this.pixels.map((row, x) => {
+          return row.map((pixel, y) => {
+            const exists = res.find(p => p.x == x && p.y == y);
+            return exists ? exists : pixel;
+          })
+        })
+        // Estudar!!!
+        this.cdr.detectChanges();
       }
     )
 

@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Api {
-  protected readonly URL: string = "http://10.234.197.18:5294/api"
+  // protected readonly URL: string = "http://10.234.197.18:5294/api"
+  protected readonly URL: string = "http://localhost:5294/api"
 
   constructor( protected client: HttpClient ){}
 }
