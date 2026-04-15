@@ -185,7 +185,11 @@ public class RoomUseCase(
         if(playerAlreadyExists is not null)
             return;
 
-        room.Players = room.Players.Append(user);
+        room.Players = room.Players.Append(new()
+        {
+            Id= user.Id,
+            Username = user.Username
+        });
         await RoomCollection.ReplaceOneAsync(r => r.Id == roomId ,room);
     }
 
@@ -264,7 +268,7 @@ public class RoomUseCase(
     {
         await GetUserByJwt(token);
 
-        var collection = await this.RoomCollection.Find(r => r.Id != null).ToListAsync()
+        var collection = await RoomCollection.Find(r => r.Id != null).ToListAsync()
             ?? throw new Exception("The database has no rooms yet");
 
         return new()
@@ -276,7 +280,6 @@ public class RoomUseCase(
                         currentPlayers = room.Players.Count(),
                         Id = room.Id,
                         Name = room.Name
-
                     };
                 })
         };
