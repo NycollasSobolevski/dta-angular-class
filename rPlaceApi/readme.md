@@ -38,3 +38,8 @@ subscribe
 	- password
 login
 updatePixel (futuramente WEBSOCKET)
+
+
+Run command: 
+
+dotnet run --urls "http://[IP]:5294"                        

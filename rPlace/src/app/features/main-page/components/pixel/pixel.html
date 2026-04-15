@@ -1,9 +1,1 @@
-<!-- <input type="color" class="pixel" [value]="'#010101'" (change)="change($event.target.value)"> -->
-
-<div  [style]="`
-    width:2rem;
-    height:2rem;
-    background-color: ${data.color};
-    border: 1px solid black; 
-`">
-</div>
+<input type="color" class="pixel" [value]="data.Color" (change)="change($event.target.value)">

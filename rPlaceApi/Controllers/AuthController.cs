@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using rPlace.Models;
@@ -27,6 +28,6 @@ public class AuthController : ControllerBase
     )
     {
         var token = await usecase.Login(payload);
-        return Ok(token);
+        return Ok(JsonSerializer.Serialize(token));
     }
 }

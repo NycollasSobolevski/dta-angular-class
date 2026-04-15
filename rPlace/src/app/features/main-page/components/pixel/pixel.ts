@@ -15,7 +15,7 @@ export class Pixel {
   onChange:EventEmitter<IPixel> = new EventEmitter();
 
   change(event: string){
-    this.data.color = event;
+    this.data.Color = event;
     this.onChange.emit(this.data);
   }
 }

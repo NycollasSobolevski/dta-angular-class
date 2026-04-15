@@ -6,7 +6,9 @@ public class Room
 {
     [BsonId]
     [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-    public string id { get; set; }
+    public string Id { get; set; }
     public string Name { get; set; }
+    public IEnumerable<User> Players { get; set; } = [];
     public IEnumerable<Pixel> Pixels { get; set; } = [];
+    public UserDto? CreatedBy { get; set; }
 }

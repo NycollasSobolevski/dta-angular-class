@@ -23,9 +23,9 @@ export class MainPage {
       let row : IPixel[] = [];
       for(let x = 0; x < 100; x++ ) {
         row.push({
-            color: 'gray',
-            x: x,
-            y: y
+            Color: 'gray',
+            X: x,
+            Y: y
         })
       }
       lines.push(row);
@@ -38,22 +38,22 @@ export class MainPage {
 
   loadData(){
     let received: IPixel[] = [
-      {x:1,y:1,color:'#111',lastChange:new Date()},
-      {x:2,y:1,color:'#634444',lastChange:new Date()},
-      {x:3,y:1,color:'#aa9c9c',lastChange:new Date()},
-      {x:1,y:2,color:'#111',lastChange:new Date()},
-      {x:2,y:2,color:'#b6ef9c',lastChange:new Date()},
-      {x:3,y:2,color:'#4c28a2',lastChange:new Date()},
-      {x:1,y:3,color:'#5aac79',lastChange:new Date()},
-      {x:2,y:3,color:'#e88f8f',lastChange:new Date()},
-      {x:3,y:3,color:'#862986',lastChange:new Date()},
+      {X:1,Y:1,Color:'#111',LastChange:new Date()},
+      {X:2,Y:1,Color:'#634444',LastChange:new Date()},
+      {X:3,Y:1,Color:'#aa9c9c',LastChange:new Date()},
+      {X:1,Y:2,Color:'#111',LastChange:new Date()},
+      {X:2,Y:2,Color:'#b6ef9c',LastChange:new Date()},
+      {X:3,Y:2,Color:'#4c28a2',LastChange:new Date()},
+      {X:1,Y:3,Color:'#5aac79',LastChange:new Date()},
+      {X:2,Y:3,Color:'#e88f8f',LastChange:new Date()},
+      {X:3,Y:3,Color:'#862986',LastChange:new Date()},
     ]
 
     this.api.GetAll().subscribe(
       res => {
         this.pixels = this.pixels.map((row, x) => {
           return row.map((pixel, y) => {
-            const exists = res.find(p => p.x == x && p.y == y);
+            const exists = res.find(p => p.X == x && p.Y == y);
             return exists ? exists : pixel;
           })
         })
@@ -64,7 +64,7 @@ export class MainPage {
   }
 
   updateData(pixel: IPixel){
-    this.pixels[pixel.y][pixel.x] = pixel
+    this.pixels[pixel.Y][pixel.X] = pixel
   }
 
   logout = () => {

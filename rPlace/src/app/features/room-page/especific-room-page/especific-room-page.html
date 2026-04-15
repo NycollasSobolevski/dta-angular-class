@@ -1,0 +1,14 @@
+<p>especific-room-page works!</p>
+{{id}}
+
+
+<main class="pixels-zone">
+    
+    @for (row of pixels(); track $index) {
+        <div class="row">
+            @for (pixel of row; track $index) {
+                <app-pixel [data]="pixel" (onChange)="updateData($event)" />
+            }
+        </div>
+    }
+</main>

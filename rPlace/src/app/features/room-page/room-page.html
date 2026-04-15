@@ -1,0 +1,9 @@
+<header>
+    @for (item of ids.rooms; track $index) {
+        <div class="room-content">
+            <p>{{item.id}} - {{item.name}} ({{item.quantityOfPlayers}} players)</p>
+        </div>
+    }
+</header>
+<br>
+<router-outlet /> 

@@ -1,10 +1,15 @@
 export interface IPixel {
-    id?: number,
-    x: number,
-    y: number,
-    lastChange?: Date,
-    color: string,
-    user?: UserDto
+    Id?: number,
+    X: number,
+    Y: number,
+    LastChange?: Date,
+    Color: string,
+    User?: UserDto
+}
+
+export interface IUpdatePixelDto {
+    Pixel: IPixel,
+    UserToken?: string
 }
 
 export interface UserDto {
