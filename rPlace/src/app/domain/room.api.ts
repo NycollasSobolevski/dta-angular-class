@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Api } from './api';
 import { Observable, Subject } from 'rxjs';
 import { IPixel, IUpdatePixelDto } from '../features/main-page/components/pixel/IPixel';
-import { GetAllRoomsResponse } from './interfaces/room';
+import { CanvasAction, GetAllRoomsResponse, MessageType, WebSocketMessage } from './interfaces/room';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,9 @@ export class RoomApi extends Api {
   private wsURL = "ws://localhost:5294/api/room";
 
   private socket!: WebSocket;
-  private PixelsSubject = new Subject<IPixel>();
+  private _pixelsSubject = new Subject<CanvasAction>();
 
-  public pixels: Observable<IPixel> = this.PixelsSubject.asObservable();
+  public pixels: Observable<CanvasAction> = this._pixelsSubject.asObservable();
 
   public connect = (roomId: string) => {
     const token = sessionStorage.getItem('token');
@@ -27,8 +27,31 @@ export class RoomApi extends Api {
       console.log("Socket Connectado ", res);
     };
 
-    this.socket.onmessage = (event) => {
-      console.log("Recebendo mensagem do socket", event);
+    this.socket.onmessage = (event: MessageEvent) => {
+      // console.log("On Message activated", event.data);
+      const message: WebSocketMessage<any> = JSON.parse(event.data)
+      console.log(message);
+      
+      switch(message.Type) {
+        case MessageType.Message: {
+          // Aqui eu recebo somente uma mensagem de texto
+          break;
+        } case MessageType.FirstConnection: {
+          // Aqui eu recebo uma lista de pixels com todos os pixeis atuais da sessão
+          this._pixelsSubject.next({type: "FULL_LOAD", payload: message.Data})
+          break;
+          
+        } case MessageType.PlayerAction: {
+          // aqui eu recebo um unico pixel que um usuário modificou
+          this._pixelsSubject.next({type: "SINGLE_LOAD", payload: message.Data})
+          break;
+
+        } default: {
+          console.log("nao caiu em nenhum dos casos");
+          break;
+          
+        }
+      }
     };  
 
     this.socket.onerror = (error) => {
