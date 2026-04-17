@@ -14,7 +14,7 @@ public class LoginUseCase(
     
     public async Task<string> Login(User payload)
     {
-        var cursor = await collection.FindAsync(u => u.Username == payload.Username)
+        var cursor = await collection.FindAsync(u => u.Username == payload.Username || u.Email == payload.Email)
             ?? throw new Exception("User or Password not match");
 
         var user = cursor.First() ?? throw new Exception("User or Password not match");

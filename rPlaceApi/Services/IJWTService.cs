@@ -6,7 +6,7 @@ public interface IJWTService
 {
     string CreateToken(JWTData data);
     (JWTData, bool) Deserialize(string token );
-
+    Task<User> GetUserByJwt(string token);
 }
 
 public record JWTData

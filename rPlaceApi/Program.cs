@@ -37,7 +37,7 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
     var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
     return new MongoClient(settings.ConnectionString);
 });
-builder.Services.AddScoped<IMongoDatabase>(sp =>
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
 {
     var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
     var client = sp.GetRequiredService<IMongoClient>();
@@ -50,6 +50,8 @@ builder.Services.AddTransient<LoginUseCase>();
 builder.Services.AddTransient<SubscribeUseCase>();
 builder.Services.AddTransient<RoomUseCase>();
 builder.Services.AddTransient<PixelUseCase>();
+builder.Services.AddTransient<MessageUseCase>();
+builder.Services.AddTransient<ContactUseCase>();
 
 
 var app = builder.Build();

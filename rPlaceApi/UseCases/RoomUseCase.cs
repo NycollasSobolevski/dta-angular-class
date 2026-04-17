@@ -205,11 +205,11 @@ public class RoomUseCase(
 
     protected async Task SendFirstStateOfRoom(string roomId, WebSocket socket)
     {
-        var room = await RoomCollection.Find(r => r.Id == roomId).FirstOrDefaultAsync();
-        var message = new SocketMessage<Room>()
+        var pixels = await PixelsCollection.Find(r => r.IdRoom == roomId).ToListAsync();
+        var message = new SocketMessage<IEnumerable<Pixel>>()
         {
             Type = MessageType.FirstConnection,
-            Data = room
+            Data = pixels
         };
         var roomInfoBytes = System.Text.Encoding.UTF8.GetBytes(
             JsonSerializer.Serialize(message)

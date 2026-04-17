@@ -2,11 +2,15 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
+using rPlace.Models;
 
 namespace rPlace.Services;
 
-public class JWTService : IJWTService
+public class JWTService(IMongoDatabase _db) : IJWTService
 {
+
+    private readonly IMongoCollection<User> UserCollection = _db.GetCollection<User>("User");
     public string CreateToken(JWTData data)
     {
         var secret = "ff2bdd59a0cd9b5553047ad1838001580197a2ee1c43e4c32f745bb71d84997e";
@@ -47,4 +51,15 @@ public class JWTService : IJWTService
 
         return (tokenContent, true);
     }
+
+    public async Task<User> GetUserByJwt(string token)
+    {
+        var jwtdata = Deserialize(token).Item1;
+
+        var userData = await UserCollection.Find(users => users.Id == jwtdata.ID).FirstOrDefaultAsync()
+            ?? throw new Exception("User not found");
+
+        return userData;
+    }
+
 }

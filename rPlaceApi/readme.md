@@ -42,4 +42,4 @@ updatePixel (futuramente WEBSOCKET)
 
 Run command: 
 
-dotnet run --urls "http://[IP]:5294"                        
+dotnet run --urls "http://10.234.195.227:5294"                        
